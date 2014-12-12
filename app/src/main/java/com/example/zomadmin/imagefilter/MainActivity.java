@@ -23,8 +23,6 @@ import java.io.IOException;
 public class MainActivity extends ActionBarActivity {
 
     ApplyCurve curve1;
-    //finding out more filters
-
     double[][] GaussianBlurConfig = new double[][] {
             { 1, 2, 1 },
             { 2, 4, 2 },
@@ -50,8 +48,7 @@ public class MainActivity extends ActionBarActivity {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
-        //Find out optimized image size
-        final Bitmap newBitmap = Bitmap.createScaledBitmap(normal_sample,width-20,height-400,true);
+        final Bitmap newBitmap = Bitmap.createScaledBitmap(normal_sample,width-20,height - 470,true);
         final MyView myview = (MyView) findViewById(R.id.view1);
         myview.changeBitmap(newBitmap,false);
         runOnUiThread(new Runnable() {
@@ -77,7 +74,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        //intialize
+        //intialize the curves
         try {
             curve1 = new ApplyCurve("country.acv", getApplicationContext());
         }catch (IOException e){
